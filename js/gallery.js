@@ -58,8 +58,3 @@ function createImges(image) {
     )
     .join('');
 }
-gallery.style.display = 'flex';
-gallery.style.flexWrap = 'wrap';
-(gallery.style.padding = '24px'), '156px', '24px', '156px';
-img.style.display = 'block';
-img.style.width = '360px';

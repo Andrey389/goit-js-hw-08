@@ -1,5 +1,5 @@
 
-/* .gallery {
+.gallery {
     display: flex;
     flex-wrap: wrap;
     padding: 24px 156px 24px 156px;
@@ -15,4 +15,4 @@ img {
     list-style-type: none;
     margin-right: 24px;
     margin-bottom: 24px;
-} */
+}

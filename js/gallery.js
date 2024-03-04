@@ -48,13 +48,19 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 gallery.innerHTML = createImges(images);
+gallery.addEventListener('click', openClick);
 function createImges(image) {
   return image
     .map(
       ({ preview, original, description }) =>
         `<li class="gallery-item">
         <a class="gallery-link" href="${original}">
-        <img class="gallery-image" src="${preview}" data-source="${original}" alt="${description}" >`
+        <img class="gallery-image" src="${preview}" data-source="${original}" alt="${description}" >
+        </li>`
     )
     .join('');
+}
+
+function openClick(event) {
+  console.log('href =>', event.target.dataset.source);
 }

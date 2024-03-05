@@ -49,6 +49,24 @@ const images = [
 const gallery = document.querySelector('.gallery');
 gallery.innerHTML = createImges(images);
 gallery.addEventListener('click', openClick);
+
+function openClick(event) {
+  if (event.currentTarget === event.target) {
+    return;
+  }
+
+  const currentImage = event.target.closet('.gallery-item');
+  const imageId = Number(currentImage.dataset.id);
+
+  const image = images.find(({ id }) => id === imageId);
+  console.log(image);
+
+  const instance = basicLightbox.create(`
+    <img src="${image.original}" alt="${image.description}" >
+`);
+
+  instance.show();
+}
 function createImges(image) {
   return image
     .map(

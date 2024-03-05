@@ -56,9 +56,9 @@ function openClick(event) {
   }
 
   const currentImage = event.target.closet('.gallery-item');
-  const imageId = Number(currentImage.dataset.id);
+  const imageSor = Number(currentImage.dataset.source);
 
-  const image = images.find(({ id }) => id === imageId);
+  const image = images.find(({ source }) => source === imageSor);
   console.log(image);
 
   const instance = basicLightbox.create(`

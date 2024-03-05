@@ -56,7 +56,7 @@ function openClick(event) {
   }
 
   const currentImage = event.target.closet('.gallery-item');
-  const imageSor = Number(currentImage.dataset.source);
+  const imageSor = currentImage.dataset.source;
 
   const image = images.find(({ source }) => source === imageSor);
   console.log(image);

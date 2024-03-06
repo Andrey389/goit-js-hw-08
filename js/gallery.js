@@ -47,38 +47,29 @@ const images = [
 ];
 
 const gallery = document.querySelector('.gallery');
-gallery.innerHTML = createImges(images);
+gallery.innerHTML = createImages(images);
 gallery.addEventListener('click', openClick);
-
 function openClick(event) {
   if (event.currentTarget === event.target) {
     return;
   }
-
-  const currentImage = event.target.closet('.gallery-item');
-  const imageSor = currentImage.dataset.source;
-
-  const image = images.find(({ source }) => source === imageSor);
-  console.log(image);
-
+  const currentImage = event.target.closest('.gallery-item');
+  const imageSource = currentImage.querySelector('.gallery-image').dataset.source;
+  const image = images.find(({ original }) => original === imageSource);
   const instance = basicLightbox.create(`
-    <img src="${image.original}" alt="${image.description}" >
-`);
-
+      <img src="${image.original}" alt="${image.description}" >
+    `);
   instance.show();
 }
-function createImges(image) {
-  return image
+function createImages(images) {
+  return images
     .map(
       ({ preview, original, description }) =>
         `<li class="gallery-item">
-        <a class="gallery-link" href="${original}">
-        <img class="gallery-image" src="${preview}" data-source="${original}" alt="${description}" >
-        </li>`
+            <a class="gallery-link" href="${original}">
+              <img class="gallery-image" src="${preview}" data-source="${original}" alt="${description}" />
+            </a>
+          </li>`
     )
     .join('');
-}
-
-function openClick(event) {
-  console.log('href =>', event.target.dataset.source);
 }

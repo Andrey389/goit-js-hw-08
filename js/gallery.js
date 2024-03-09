@@ -59,6 +59,7 @@ function openClick(event) {
   const instance = basicLightbox.create(`
       <img src="${image.original}" alt="${image.description}" >
     `);
+  event.preventDefault();
   instance.show();
 }
 function createImages(images) {
